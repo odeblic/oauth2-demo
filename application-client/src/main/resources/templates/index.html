@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the application</h1>
+
+        <br>
+
+        <img src="images/secrets.jpg" alt="secrets">
+
+        <br>
+
+        <p>I need to access to some secrets...</p>
+
+        <br>
+
+        <form method="get" action="https://localhost:5002/consent">
+
+            <input type="hidden" name="state" th:value="${state}">
+
+            <input type="hidden" name="redirect_uri" value="https://localhost:5001/view">
+
+            <div class="form-group">
+              <label for="clientID">Client ID</label>
+              <input name="client_id" class="form-control" id="clientID" placeholder="Enter a client ID">
+            </div>
+
+            <!--
+            <div class="form-group">
+                <label for="clientID">client ID</label>
+                <select name="client_id" class="form-control" id="clientID">
+                  <option>app-0</option>
+                  <option>app-1</option>
+                  <option>app-2</option>
+                  <option>app-3</option>
+                </select>
+            </div>
+            -->
+
+            <div class="form-group">
+              <label for="scope">Scope</label>
+              <input name="scope" class="form-control" id="scope" placeholder="Enter the desired scope">
+            </div>
+
+            <!--
+            <div class="form-group">
+                <label for="scope">scope</label>
+                <select name="scope" class="form-control" id="scope">
+                  <option>alice</option>
+                  <option>bob</option>
+                  <option>charlie</option>
+                  <option>emily</option>
+                  <option>felix</option>
+                  <option>all</option>
+                </select>
+            </div>
+            -->
+
+            <button type="submit" class="btn btn-primary">Access</button>
+        </form>
+    </div>
+</body>
+</html>
